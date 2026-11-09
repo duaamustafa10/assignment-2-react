@@ -1,38 +1,377 @@
-.App {
-  text-align: center;
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
   min-height: 100vh;
+  background: linear-gradient(135deg, #eaf2ff, #f8fbff);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.registration-card {
+  width: 100%;
+  max-width: 1000px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(6, 40, 92, 0.12);
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 35px 45px;
+  background: linear-gradient(120deg, #06285c, #1d4ed8);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header-icon {
+  font-size: 55px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.header h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 14px;
+  color: #dbeafe;
+  margin-bottom: 0;
+}
+
+/* Progress Steps */
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 45px;
+  border-bottom: 1px solid #e5e7eb;
+  gap: 10px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: #334155;
+}
+
+.step.active {
+  color: #1d4ed8;
+}
+
+.step.active .step-number {
+  background: #2563eb;
+  color: white;
+}
+
+/* Form */
+
+.form-content {
+  padding: 35px 45px;
+}
+
+.form-section h2 {
+  color: #06285c;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 8px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 9px;
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group label span {
+  color: #ef4444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  background: #ffffff;
+  color: #1e293b;
+  font-family: inherit;
+  transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.error-message {
+  display: block;
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* Buttons */
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.primary-btn,
+.back-btn {
+  padding: 13px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.primary-btn {
+  background: #2563eb;
+  color: white;
+  margin-left: auto;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+}
+
+.back-btn {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.back-btn:hover {
+  background: #cbd5e1;
+}
+
+/* Review */
+
+.review-section {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 18px;
+  background: #ffffff;
+}
+
+.review-section h3 {
+  color: #2563eb;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.review-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.review-row:last-child {
+  border-bottom: none;
+}
+
+.review-row span {
+  color: #64748b;
+}
+
+.review-row strong {
+  color: #1e293b;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.review-note {
+  color: #64748b;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+/* Footer */
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+  color: #334155;
+  font-size: 13px;
+}
+
+/* Success Screen */
+
+.success-container {
+  min-height: 100vh;
+  background: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.success-card {
+  background: white;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  padding: 45px 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.success-icon {
+  width: 70px;
+  height: 70px;
+  background: #dcfce7;
+  color: #16a34a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 38px;
+  margin: 0 auto 20px;
+}
+
+.success-card h1 {
+  color: #06285c;
+  font-size: 25px;
+}
+
+.success-card p {
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 650px) {
+  .app-container {
+    padding: 15px 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .header {
+    padding: 25px 18px;
+    gap: 12px;
+  }
+
+  .header-icon {
+    font-size: 35px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .header p {
+    font-size: 12px;
+  }
+
+  .steps {
+    padding: 25px 10px;
+    gap: 5px;
+  }
+
+  .step {
+    font-size: 11px;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .form-content {
+    padding: 25px 18px;
+  }
+
+  .form-section h2 {
+    font-size: 21px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .review-section {
+    padding: 14px;
+  }
+
+  .review-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .review-row strong {
+    text-align: left;
+  }
+
+  .primary-btn,
+  .back-btn {
+    padding: 12px 15px;
+    font-size: 13px;
   }
 }
